@@ -1,0 +1,12 @@
+# Publish English Markdown documentation only.
+# Local sources, editor settings, tools, samples, and binaries stay on disk.
+/*
+!/.gitignore
+!/README.md
+!/docs/
+!/notes/
+
+/docs/*
+!/docs/*.md
+/notes/*
+!/notes/*.md

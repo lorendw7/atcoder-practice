@@ -1,21 +1,55 @@
-# AtCoder Practice Notes
+# AtCoder Blue Project
 
-English practice records, learning plans, and environment notes for [Lorendw](https://atcoder.jp/users/Lorendw).
+A reproducible C++ practice repository for [Lorendw](https://atcoder.jp/users/Lorendw). The current goal is to reach and retain AtCoder blue: algorithm rating **1600-1999**. Progress is measured by independent contest performance, not by accepted submissions alone.
 
-**Long-term goal: independently solve all A-G problems in an unfamiliar AtCoder Beginner Contest within its contest duration.** Rebuild fluency first, then progress from consistent A-C to D, E, and finally F/G.
+## Start here
 
-## Documents
+- [Blue-rating training plan](docs/training-plan.md): phase gates, weekly routine, topic order, and the next two weeks.
+- [Practice log](notes/progress.md): verified submissions, assistance level, review queue, and current metrics.
+- [Local environment](docs/local-environment.md): Windows, VS Code, GCC, CPH, and the sample runner.
 
-- [Practice log](notes/progress.md): approaches, results, assistance, and lessons.
-- [Training plan](docs/training-plan.md): staged goals and a weekly routine.
-- [Local environment](docs/local-environment.md): Windows, VS Code, GCC, and CPH setup and troubleshooting.
+## Repository layout
 
-## Repository policy
+```text
+contests/<contest>/<task>/
+  main.cpp       # submitted or practice solution
+  problem.json   # problem identity and URL
+docs/            # plan and environment documentation
+notes/           # progress and review records
+templates/       # C++ starter template
+tools/           # local build, download, and test helper
+cp.cmd           # Windows entry point for tools/practice.py
+```
 
-Keep all documentation in English. Publish problem links, reasoning, complexity analysis, mistakes, review dates, and verified results. Do not publish solution source files, templates, helper scripts, executables, downloaded samples, editor caches, or machine-specific settings.
+Generated executables, downloaded samples, CPH metadata, virtual environments, and machine-specific editor settings are intentionally ignored. Source code, portable tooling, and learning records are tracked.
 
-The ignore rules allow only this README and Markdown files directly inside `docs/` and `notes/`, plus `.gitignore` itself. Existing practice files and local tools remain available on this computer but are not part of the repository. A fresh clone contains documentation only.
+## Quick workflow
 
-After a session, update the practice log and commit the relevant documents. Review the staged file list before pushing. Do not force-add ignored files.
+On a fresh Windows clone, create the local Python environment and verify the toolchain:
 
-Record assistance honestly as **independent / hint / editorial**. Passing local samples is not an official accepted submission; include the submission URL when an official result is available.
+```powershell
+py -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+cp.cmd doctor
+```
+
+Create a problem folder and download its public samples:
+
+```powershell
+cp.cmd new https://atcoder.jp/contests/abc153/tasks/abc153_e
+```
+
+Build and test an existing solution:
+
+```powershell
+cp.cmd test contests/abc153/e/main.cpp
+```
+
+After each session:
+
+1. Record the result and assistance level in `notes/progress.md`.
+2. If help was used, schedule an independent reimplementation in 2-3 days.
+3. Record the approach, correctness argument, complexity, and the official submission URL when available.
+4. Review the staged files before committing. Never commit binaries, credentials, or generated caches.
+
+Passing samples is not the same as an AtCoder AC. Classify work honestly as **independent**, **hint**, or **editorial/guided**.

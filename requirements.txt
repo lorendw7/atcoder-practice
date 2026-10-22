@@ -1,0 +1,4 @@
+# setuptools supplies distutils for online-judge-tools on Python 3.12.
+online-judge-tools==11.5.1
+online-judge-api-client==10.10.1
+setuptools==84.2.0

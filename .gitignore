@@ -1,12 +1,19 @@
-# Publish English Markdown documentation only.
-# Local sources, editor settings, tools, samples, and binaries stay on disk.
-/*
-!/.gitignore
-!/README.md
-!/docs/
-!/notes/
+# Generated build artifacts and local environments.
+.venv/
+**/*.exe
+**/*.bin
+**/*.o
+**/__pycache__/
+**/*.py[cod]
 
-/docs/*
-!/docs/*.md
-/notes/*
-!/notes/*.md
+# Editor- and extension-specific state. Portable source and tooling are tracked.
+.vscode/
+*.code-workspace
+**/.cph/
+
+# Downloaded sample cases are reproducible from problem.json.
+**/test/
+
+# Temporary files.
+*.tmp
+*.log

@@ -1,0 +1,214 @@
+{
+  "folders": [
+    {
+      "name": "Practice",
+      "path": "contests"
+    },
+    {
+      "name": "Docs",
+      "path": "docs"
+    },
+    {
+      "name": "Notes",
+      "path": "notes"
+    }
+  ],
+  "settings": {
+    "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+    "C_Cpp.default.compilerArgs": [
+      "-Wall",
+      "-Wextra",
+      "-Wshadow"
+    ],
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4 }",
+    "[cpp]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools",
+      "editor.formatOnSave": true,
+      "editor.tabSize": 4
+    },
+    "editor.inlineSuggest.enabled": false,
+    "files.encoding": "utf8",
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+      "**/*.exe": true,
+      "**/.cph": true
+    },
+    "terminal.integrated.env.windows": {
+      "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+    },
+    "cph.general.defaultLanguage": "cpp",
+    "cph.general.defaultLanguageTemplateFileLocation": "D:/CS/Code/atcoder-practice/templates/main.cpp",
+    "cph.general.saveLocation": "",
+    "cph.general.useShortAtCoderName": true,
+    "cph.general.timeOut": 3000,
+    "cph.language.cpp.Command": "D:/CS/Code/atcoder-practice/tools/cph-gpp-wrapper.exe",
+    "cph.language.cpp.Args": "-std=c++20 -O2 -Wall -Wextra -Wshadow -static"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "AtCoder: Test samples",
+        "type": "process",
+        "command": "${workspaceFolder:Practice}/../.venv/Scripts/python.exe",
+        "args": [
+          "${workspaceFolder:Practice}/../tools/practice.py",
+          "test",
+          "${file}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:Practice}/.."
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "AtCoder: Build for debugging",
+        "type": "process",
+        "command": "${workspaceFolder:Practice}/../.venv/Scripts/python.exe",
+        "args": [
+          "${workspaceFolder:Practice}/../tools/practice.py",
+          "build",
+          "${file}",
+          "--debug"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:Practice}/.."
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "AtCoder: Run interactively",
+        "type": "process",
+        "command": "${workspaceFolder:Practice}/../.venv/Scripts/python.exe",
+        "args": [
+          "${workspaceFolder:Practice}/../tools/practice.py",
+          "run",
+          "${file}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:Practice}/.."
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "AtCoder: Download samples",
+        "type": "process",
+        "command": "${workspaceFolder:Practice}/../.venv/Scripts/python.exe",
+        "args": [
+          "${workspaceFolder:Practice}/../tools/practice.py",
+          "download",
+          "${file}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:Practice}/.."
+        },
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "AtCoder: Import samples into CPH",
+        "type": "process",
+        "command": "${workspaceFolder:Practice}/../.venv/Scripts/python.exe",
+        "args": [
+          "${workspaceFolder:Practice}/../tools/practice.py",
+          "cph",
+          "${file}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:Practice}/.."
+        },
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "AtCoder: New problem from URL",
+        "type": "process",
+        "command": "${workspaceFolder:Practice}/../.venv/Scripts/python.exe",
+        "args": [
+          "${workspaceFolder:Practice}/../tools/practice.py",
+          "new",
+          "${input:problemUrl}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:Practice}/.."
+        },
+        "problemMatcher": []
+      }
+    ],
+    "inputs": [
+      {
+        "id": "problemUrl",
+        "type": "promptString",
+        "description": "AtCoder problem URL",
+        "default": "https://atcoder.jp/contests/abc083/tasks/abc083_b"
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "AtCoder: Debug active C++ file",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [
+          {
+            "name": "PATH",
+            "value": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+          }
+        ],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+        "setupCommands": [
+          {
+            "description": "Enable pretty printing",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ],
+        "preLaunchTask": "AtCoder: Build for debugging"
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.cpptools",
+      "divyanshuagrawal.competitive-programming-helper"
+    ]
+  }
+}

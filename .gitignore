@@ -9,6 +9,7 @@
 # Editor- and extension-specific state. Portable source and tooling are tracked.
 .vscode/
 *.code-workspace
+!/atcoder-practice.code-workspace
 **/.cph/
 
 # Downloaded sample cases are reproducible from problem.json.

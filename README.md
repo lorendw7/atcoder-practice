@@ -19,6 +19,10 @@ notes/           # progress and review records
 templates/       # C++ starter template
 tools/           # local build, download, and test helper
 cp.cmd           # Windows entry point for tools/practice.py
+open-workspace.cmd
+                 # opens the workspace with contests/ as the import root
+atcoder-practice.code-workspace
+                 # tracked VS Code/CPH project configuration
 ```
 
 Generated executables, downloaded samples, CPH metadata, virtual environments, and machine-specific editor settings are intentionally ignored. Source code, portable tooling, and learning records are tracked.
@@ -32,6 +36,15 @@ py -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 cp.cmd doctor
 ```
+
+Build the CPH compiler wrapper once, then always open the tracked workspace rather than the repository folder:
+
+```powershell
+cp.cmd build tools/cph-gpp-wrapper.cpp
+open-workspace.cmd
+```
+
+The workspace places `contests/` first, so Competitive Companion imports land there instead of the repository root. The wrapper places MSYS2 UCRT64 ahead of conflicting MinGW installations when CPH launches GCC.
 
 Create a problem folder and download its public samples:
 

@@ -9,6 +9,7 @@
 | 2026-10-20 | [ABC088C](https://atcoder.jp/contests/abc088/tasks/abc088_c) | Guided derivation of row differences, correctness argument, and implementation outline; learner answered the observation exercise | Not recorded | AC, 300 points; confirmed by the user's submission screenshot (14:06:28 JST); submission URL not recorded | Compare each row with the first row: the difference must be constant across columns. |
 | 2026-10-20 | [ABC088D](https://atcoder.jp/contests/abc088/tasks/abc088_d) | Guided shortest-path reduction, BFS core code, and diagnosis of the grid-reading column bound | Learner's final source not separately tested by assistant | AC, 400 points; confirmed by the user's submission screenshot (14:35:40 JST); submission URL not recorded | Preserve shortest-path cells, including the start; iterate columns using the width, and test rectangular grids. |
 | 2026-10-23 | [DP A - Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a) | Guided state and transition derivation; full reference implementation requested and provided | Assistant reference passed all 3 official samples and the four-stone lesson exercise | AC, 100 points at 01:28:38 JST after two CE submissions; confirmed by the user's AtCoder screenshot; submission URL not recorded | Compare the total cost to reach a predecessor plus the last jump cost; compute states in dependency order. Diagnose compiler errors locally before resubmitting. |
+| 2026-10-23 | [DP B - Frog 2](https://atcoder.jp/contests/dp/tasks/dp_b) | Guided recurrence; learner implementation reviewed and corrected on request | Initial implementation compiled outside CPH but passed 2/4 samples; corrected implementation passed 4/4 locally | Not submitted | Initialize unreachable states to infinity, minimize over valid predecessors, and use the height difference rather than the DP-value difference. |
 
 ## Current dashboard
 
@@ -20,14 +21,14 @@ Updated 2026-10-23.
 | Recorded official ACs | 6 | Keep submission URLs for future ACs |
 | Independent mastery | ABC081B locally verified; most other tasks used some assistance | Independent blank-file rewrites of DP A and ABC088D |
 | Timed unfamiliar ABCs | None recorded | Complete one 100-minute virtual ABC this week |
-| Current topic | Basic one-dimensional DP | DP B, DP C, then DP D/E |
+| Current topic | DP B completed with guided correction | DP C next; independently rewrite DP A and DP B |
 | Error signal | Two CE submissions before DP A AC | Compile and run samples locally before every submission |
 
 ### Next seven sessions
 
-1. Reimplement DP A from a blank file without the prior code; target 25 minutes.
-2. Solve DP B and explain why the complexity is `O(NK)`.
-3. Solve DP C using a day/activity state.
+1. Solve DP C using a day/activity state.
+2. Reimplement DP A from a blank file without the prior code; target 25 minutes.
+3. Reimplement DP B from a blank file after 2-3 days; target 30 minutes and explain `O(NK)`.
 4. Reimplement ABC088D independently and test rectangular grids.
 5. Solve ABC085C and Traveling without solution lookup.
 6. Run one unfamiliar 100-minute virtual ABC with no help.
@@ -39,7 +40,8 @@ Updated 2026-10-23.
 - C lesson completed: The learner correctly identified constant row differences and how changing one cell breaks them. Guided instruction then connected this condition to a row-plus-column construction and a two-loop implementation outline. Reimplement independently on 2026-10-22.
 - D lesson completed with guidance: The learner correctly explained that four moves use five cells, leaving two repaintable cells in a seven-white-cell example. Instruction covered FIFO queues, BFS distance layers, and marking cells when enqueued. The learner assembled a solution; review identified an input loop using the height instead of the width. The subsequent submission was accepted. Reimplement BFS independently on 2026-10-22 and include both wide and tall rectangular tests.
 - DP foundation lesson completed with guidance: [Educational DP A - Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a). Define dp[i] as the minimum total cost to reach stone i. The learner correctly computed dp[3] = 10 for heights 10, 30, 20, then dp[4] = 15 after appending height 25. A full reference implementation was requested and provided; the learner later submitted an AC after two CE attempts. Independent reproduction is still pending.
-- Planned DP bridge: DP B, DP C, DP D, and DP E, then [ABC153E - Crested Ibis vs Monster](https://atcoder.jp/contests/abc153/tasks/abc153_e). Teach the difference between one-use choices and reusable choices before implementing the E task.
+- DP B completed locally with guided correction: the learner generalized the recurrence to the previous K stones, but the first implementation maximized a DP-value difference and left states initialized to zero. After review, it now minimizes `dp[j] + abs(h[i] - h[j])` over valid predecessors and passes all four official samples. Reimplement independently after 2-3 days.
+- Planned DP bridge: DP C, DP D, and DP E, then [ABC153E - Crested Ibis vs Monster](https://atcoder.jp/contests/abc153/tasks/abc153_e). Teach the difference between one-use choices and reusable choices before implementing the E task.
 - Teaching reference: [Official ABC088 editorial](https://img.atcoder.jp/abc088/editorial.pdf). Use guided questions before supplying a complete implementation.
 
 ## ABC087B review
